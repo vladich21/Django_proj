@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Dataset</title>
+</head>
+<body>
+    <h1>Список данных</h1>
+
+    <h2>Пользователи</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }} - {{ user.email }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Контейнеры</h2>
+    <ul>
+        {% for container in containers %}
+            <li>{{ container.container_number }} - {{ container.status }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Аренда</h2>
+    <ul>
+        {% for rental in rentals %}
+            <li>{{ rental.user }} арендует контейнер {{ rental.container }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -6,7 +6,7 @@ def dataset_view(request):
     users = User.objects.all()
     containers = Container.objects.all()
     rentals = Rental.objects.all()
-    sibtranslogs = SibTranslog.objects.all()
+    sibtranslogs = SibTransLog.objects.all()
     notifications = Notification.objects.all()
 
     return render(request, 'dataset.html', {

@@ -1,4 +1,5 @@
 import {useUsers} from '../../hooks/useUserList'
+import dayjs from "dayjs";
 
 const UsersList = () => {
   const {users, loading, error} = useUsers();
@@ -15,7 +16,7 @@ const UsersList = () => {
             <strong>Имя: </strong>{user.name || "не указан"} <br />
             <strong>Почта: </strong>{user.email || "не указан"} <br />
             <strong>Роль: </strong>{user.role || "не указан"} <br />
-            <strong>Создан: </strong>{user.created_at || "не указан"}
+            <strong>Создан:</strong> {dayjs(user.created_at).format("YYYY-MM-DD")}
           </li>
         ))}
       </ul>

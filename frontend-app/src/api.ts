@@ -8,7 +8,7 @@ export const fetchContainers = async () => {
     return response.data;
   } catch (error) {
     console.error("Ошибка при запросе контейнеров:", error);
-    return [];
+    // return [];
   }
 };
 
@@ -18,6 +18,16 @@ export const fetchUsers = async () => {
     return response.data;
   } catch (error) {
     console.error("Ошибка при запросе пользователей:", error);
-    return [];
+    // return [];
   }
 };
+
+export const fetchRentals = async () => {
+  try {
+    const response = await axios.get(`${API_URL}rentals/`, {withCredentials: true})
+    return response.data
+  } catch (error) {
+    console.error("Ошибка при запросе аренды:", error)
+    // return []
+  }
+}

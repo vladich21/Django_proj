@@ -1,8 +1,9 @@
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include
+from polls.views import dataset_view  # Импортируем представление для dataset
 
 urlpatterns = [
-    path("polls/", include("polls.urls")),  # Подключаем маршруты для polls
-    path("admin/", admin.site.urls),  # Админ-панель
-    path("", include("polls.urls")),  # Убери dataset, подключи просто все маршруты из polls
+    path('admin/', admin.site.urls),  # Админ-панель
+    path('', include('polls.urls')),  # Подключаем маршруты из polls, включая API
+    path('dataset/', dataset_view, name='dataset_view'),  # HTML-шаблон с данными
 ]

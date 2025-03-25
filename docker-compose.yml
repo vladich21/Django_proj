@@ -1,27 +1,12 @@
-version: "3.8"
+version: '3'
 
 services:
-  backend:
+  web:
     build: .
-    ports:
-      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
-    depends_on:
-      - db
-
-  frontend:
-    build: ./frontend-app
     ports:
-      - "5173:4173"
-    depends_on:
-      - backend
-
-  db:
-    image: postgres:15
+      - "8000:8000"
     environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-    ports:
-      - "5432:5432"
+      - PYTHONUNBUFFERED=1

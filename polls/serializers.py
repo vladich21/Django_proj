@@ -4,7 +4,7 @@ from .models import User, Container, Rental, SibTransLog, Notification
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['user_id', 'name', 'email', 'role', 'created_at']
 
 class ContainerSerializer(serializers.ModelSerializer):
     class Meta:
